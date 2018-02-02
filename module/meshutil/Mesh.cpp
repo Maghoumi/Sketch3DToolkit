@@ -33,7 +33,7 @@ void Mesh::init_mesh(vec color, float line_width)
 {
 	assert(_mesh_ptr != nullptr);
 
-	_model_ptr = make_unique<Model>(_mesh_ptr);
+	_model_ptr.reset(new Model(_mesh_ptr));
 	_mesh_ptr->need_faces();
 
 	BaseDrawer* base_drawer = new BaseDrawer();

@@ -1,5 +1,7 @@
 # Built Files
 build
+*-build-*
+.idea
 
 matlab/util/*.dll
 matlab/util/*.mexw64

@@ -63,7 +63,7 @@ MainWindow *main_window_ptr_;
 // main()
 int main(int argc, char* argv[])
 {	
-	/*
+
 	if (argc < 2)
 	{
 		cout << "usage: view_mesh_example <mesh_file_path> [xform_file_path]" << endl;
@@ -74,10 +74,6 @@ int main(int argc, char* argv[])
 	
 	const char *filename = argv[1];
 	const char *xformname = (argc > 2) ? argv[2] : nullptr;
-	*/
-
-	const char *filename = "C:\\Users\\Gary\\Workspaces\\Sketch3DToolkit\\matlab\\dataset\\SHREC2013\\Models\\m1176.off";
-	const char *xformname = nullptr;
 
 	// Load mesh
 	shared_ptr<Mesh> mesh_ptr = Mesh::read(filename);

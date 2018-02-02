@@ -9,7 +9,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-class Descriptor abstract {
+class Descriptor {
 
 public:
 	const cv::Mat& _im;

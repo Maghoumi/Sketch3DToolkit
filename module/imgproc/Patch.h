@@ -9,7 +9,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-class Patch abstract {
+class Patch {
 
 protected:
 	int _imHeight, _imWidth;

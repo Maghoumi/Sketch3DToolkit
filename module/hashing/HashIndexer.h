@@ -84,14 +84,14 @@ template<typename hash_type>
 void writeTuple(std::ofstream& fout, const typename hash_type::Tuple& t)
 {
 	for (size_t i = 0; i < hash_type::S; i++)
-		fout.write((char *)&t[i], sizeof(hash_type::uint_type));
+		fout.write((char *)&t[i], sizeof(typename hash_type::uint_type));
 }
 
 template<typename hash_type>
 void readTuple(std::ifstream& fin, typename hash_type::Tuple& t)
 {
 	for (size_t i = 0; i < hash_type::S; i++)
-		fin.read((char *)&t[i], sizeof(hash_type::uint_type));
+		fin.read((char *)&t[i], sizeof(typename hash_type::uint_type));
 }
 
 //
@@ -135,8 +135,8 @@ public:
 			std::vector<PatchInfo> infoVec;
 			infoVec.push_back(info);
 
-			infoMap.emplace(winIdx(info), move(infoVec));
-			_tupleMap.emplace(move(tuple), infoMap);
+			infoMap.emplace(winIdx(info), std::move(infoVec));
+			_tupleMap.emplace(std::move(tuple), infoMap);
 		}
 		else
 		{
@@ -308,7 +308,7 @@ protected:
 	static std::string padding(const unit_type& n, int len = 20) 
 	{
 		std::stringstream ss;
-		ss << setw(len) << setfill('0') << n;
+		ss << std::setw(len) << std::setfill('0') << n;
 		return ss.str();
 	}
 	static std::string flagFileName(const std::string& filePath) { return filePath + "/" + "_"; } 

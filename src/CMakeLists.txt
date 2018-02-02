@@ -1,7 +1,7 @@
 macro(add_runnable name)	
 	add_executable(${name} ${ARGN})
-	target_link_libraries(${name} ${OpenCV_LIBS} meshutil glew freeglut imgproc hashing retrieval)
-	configure_file(${MSVC_USER_CONFIG} ${CMAKE_CURRENT_BINARY_DIR}/${name}.vcxproj.user @ONLY)
+	target_link_libraries(${name} ${OpenCV_LIBS} meshutil glew ${GLUT_LIBRARIES} imgproc hashing retrieval)
+	#configure_file(${MSVC_USER_CONFIG} ${CMAKE_CURRENT_BINARY_DIR}/${name}.vcxproj.user @ONLY)
 	set_target_properties(${name} PROPERTIES FOLDER "src")
 endmacro()
 

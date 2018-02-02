@@ -147,7 +147,7 @@ double central_angle_dist(const vec2d& v1, const vec2d& v2)
 unique_ptr<BatchMeshWindow> initGLContext()
 {
 	// Initialize GLUT and create window
-	unique_ptr<BatchMeshWindow> main_window = make_unique<BatchMeshWindow>(MESH_WIN_SIZE, MESH_WIN_SIZE);
+	unique_ptr<BatchMeshWindow> main_window(new BatchMeshWindow(MESH_WIN_SIZE, MESH_WIN_SIZE));
 	main_window->create("Sample Mesh Viewpoints", GLUT_RGB | GLUT_SINGLE | GLUT_DEPTH, 0, nullptr);
 	glutHideWindow();
 

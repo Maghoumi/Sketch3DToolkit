@@ -1,12 +1,17 @@
 cmake_minimum_required(VERSION 3.5)
 project(Sketch3DToolkit)
+
+if(MSVC)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+endif()
+
+set (CMAKE_CXX_STANDARD 11)
 
 set(LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 set(MODULE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/module)
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-set(GLUT_INCLUDE_DIR ${LIB_DIR}/freeglut-2.6.0/include)
+#set(GLUT_INCLUDE_DIR ${LIB_DIR}/freeglut-2.6.0/include)
 set(GLEW_INCLUDE_DIR ${LIB_DIR}/glew-1.13.0/include)
 set(GLUI_INCLUDE_DIR ${LIB_DIR}/glui-2.3/src/include)
 set(TRIMESH2_INCLUDE_DIR ${LIB_DIR}/trimesh2-2.12/include)
@@ -33,10 +38,11 @@ if(MSVC)
 endif(MSVC)
 
 find_package(OpenCV REQUIRED)
-find_package(Matlab COMPONENTS MX_LIBRARY)
-if(Matlab_FOUND)
-	add_subdirectory(mex)
-endif(Matlab_FOUND)
+find_package(GLUT REQUIRED)
+#find_package(Matlab COMPONENTS MX_LIBRARY)
+#if(Matlab_FOUND)
+#	add_subdirectory(mex)
+#endif(Matlab_FOUND)
 
 #find_package(OpenMP)
 #if(OPENMP_FOUND)

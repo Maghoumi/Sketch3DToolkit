@@ -62,7 +62,7 @@ struct MinHash_
 		assert(th > 0 && th <= 1);
 
 		// binarize the input vector
-		vector<vec_t> vec_binary(len);
+		std::vector<vec_t> vec_binary(len);
 		binarize_(vec, &vec_binary[0], len, th);
 	
 		// compute K S-tuple min-hash outputs
@@ -71,7 +71,7 @@ struct MinHash_
 
 			// initialize
 			for (int k = 0; k < S; k++)
-				out[i][k] = std::numeric_limits<HashInfo_::uint_type>::max();
+				out[i][k] = std::numeric_limits<typename HashInfo_::uint_type>::max();
 
 			// compute S-tuple min-hash value
 			for (len_t j = 0; j < len; j++) {
